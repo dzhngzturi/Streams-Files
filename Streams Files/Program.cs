@@ -67,6 +67,8 @@
 
         ================================== */
 
+        /*===================4=============
+
         string filePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
 
         int lineCount = 0;
@@ -88,6 +90,19 @@
         Console.WriteLine($"{wordCount}");
         Console.WriteLine($"{charCount}");
 
+        ================================== */
+
+        string filePath = Console.ReadLine();
+
+        string fileName = Path.GetFileNameWithoutExtension(filePath);
+        string fileExtension = Path.GetExtension(filePath);
+        FileInfo fileInfo = new FileInfo(filePath);
+
+        Console.WriteLine(fileName);
+        Console.WriteLine(fileExtension);
+        Console.WriteLine(fileInfo.Length);
+
+      
 
 
     }
