@@ -21,6 +21,8 @@
         }
         ==================================*/
 
+        /*===================2=============
+
         string filePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
 
         Dictionary<char, int> charFrequency = new Dictionary<char, int>();
@@ -48,6 +50,20 @@
         {
             Console.WriteLine($"{item.Key}: {item.Value}");
         }
+        ================================== */
+
+        string inputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
+        string outputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\output.txt";
+
+        string wordToReplace = Console.ReadLine();
+        string replacementWord = Console.ReadLine();
+
+        string fileContent = File.ReadAllText(inputFilePath);
+        string updatedContent = fileContent.Replace(wordToReplace, replacementWord);
+
+        File.WriteAllText(outputFilePath, updatedContent);
+
+
 
     }
 }
