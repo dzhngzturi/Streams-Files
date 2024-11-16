@@ -52,6 +52,8 @@
         }
         ================================== */
 
+        /*===================3=============
+
         string inputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
         string outputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\output.txt";
 
@@ -62,6 +64,29 @@
         string updatedContent = fileContent.Replace(wordToReplace, replacementWord);
 
         File.WriteAllText(outputFilePath, updatedContent);
+
+        ================================== */
+
+        string filePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
+
+        int lineCount = 0;
+        int wordCount = 0;
+        int charCount = 0;
+
+        foreach (var line in File.ReadLines(filePath))
+        {
+            lineCount++;
+
+            string[] words = line.Split(new char[] { ' ', '\t', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            wordCount += words.Length;
+        
+            charCount += line.Length;  
+        }
+
+        Console.WriteLine($"{lineCount}");
+        Console.WriteLine($"{wordCount}");
+        Console.WriteLine($"{charCount}");
 
 
 
