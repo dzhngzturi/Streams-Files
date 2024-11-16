@@ -107,6 +107,7 @@
 
         ================================== */
 
+        /*===================6=============
 
         string inputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
         string outputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\output.txt";
@@ -125,8 +126,24 @@
                 writer.WriteLine(new string(lineArray));
             }
         }
+        ================================== */
+
+        string filePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
+
+        HashSet<string> uniqueWords = new HashSet<string>();
+
+        foreach (string line in File.ReadLines(filePath))
+        {
+            string[] words = line.Split(new char[] { ' ', '\t', '\n', '\r', '.', ',', ';', '!', '?', '"', '\'' }, StringSplitOptions.RemoveEmptyEntries);
 
 
+            foreach (var word in words)
+            {
+                string normalizedWord = word.ToLower();
+                uniqueWords.Add(normalizedWord);
+            }
+        }
 
+        Console.WriteLine(uniqueWords.Count);
     }
 }
