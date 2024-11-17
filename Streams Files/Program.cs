@@ -128,6 +128,8 @@
         }
         ================================== */
 
+        /*===================7=============
+
         string filePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
 
         HashSet<string> uniqueWords = new HashSet<string>();
@@ -145,5 +147,46 @@
         }
 
         Console.WriteLine(uniqueWords.Count);
+
+        ================================== */
+
+        string filePath1 = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input1.txt";
+        string filePath2 = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input2.txt";
+        string outputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\output.txt";
+
+        using (StreamReader reader1 = new StreamReader(filePath1), reader2 = new StreamReader(filePath2))
+        using (StreamWriter writer = new StreamWriter(outputFilePath))
+        {
+
+            string line1, line2 ;
+
+
+            while (true)
+            {
+                line1 = reader1.ReadLine();
+                line2 = reader2.ReadLine();
+
+                if (line1 != null)
+                {
+                    writer.WriteLine(line1);
+                }
+
+                if (line2 != null)
+                {
+                    writer.WriteLine(line2);
+                }
+
+
+                if (line1 == null && line2 == null)
+                {
+                    break;
+                }
+            }
+        }
+
+                            
+     
+
+
     }
 }
