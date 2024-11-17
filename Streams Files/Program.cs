@@ -189,6 +189,7 @@ internal class Program
 
         ================================== */
 
+        /*===================9=============
 
         string filePath1 = @"C:\Users\dzhengiz\source\repos\Sirma Academy\Exercise9";
 
@@ -221,6 +222,22 @@ internal class Program
 
         Console.WriteLine(totalSize);
 
+        ======================8==============*/
+
+
+
+        string inputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
+        string outputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\output.txt";
+
+        if (File.Exists(inputFilePath))
+        {
+            string content = File.ReadAllText(inputFilePath);
+
+            File.WriteAllText(outputFilePath, content);
+        }
+
+
 
     }
 }
+    
