@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using System.IO;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -92,7 +94,6 @@
 
         ================================== */
 
-
         /*===================5=============
 
         string filePath = Console.ReadLine();
@@ -150,6 +151,8 @@
 
         ================================== */
 
+        /*===================8=============
+
         string filePath1 = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input1.txt";
         string filePath2 = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input2.txt";
         string outputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\output.txt";
@@ -184,8 +187,39 @@
             }
         }
 
-                            
-     
+        ================================== */
+
+
+        string filePath1 = @"C:\Users\dzhengiz\source\repos\Sirma Academy\Exercise9";
+
+        long totalSize = 0;
+
+        var directories = new Stack<string>();
+        directories.Push(filePath1);
+
+        while (directories.Count > 0)
+        {
+            string currentDirectory = directories.Pop();
+
+
+            if (Directory.Exists(currentDirectory))
+            {
+                string[] files = Directory.GetFiles(currentDirectory);
+                foreach (string file in files)
+                {
+                    FileInfo fileInfo = new FileInfo(file);
+                    totalSize += fileInfo.Length;
+                }
+
+                string[] subdirectories = Directory.GetDirectories(currentDirectory);
+                foreach (string subdir in subdirectories)
+                {
+                    directories.Push(subdir);
+                }
+            }
+        }
+
+        Console.WriteLine(totalSize);
 
 
     }
