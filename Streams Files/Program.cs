@@ -1,9 +1,11 @@
-﻿using System.IO;
+﻿using Streams_Files;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Text.Json;
 
 internal class Program
 {
+    const string fileName = "person.dat";
     private static void Main(string[] args)
     {
         /*===================1=============
@@ -262,6 +264,23 @@ internal class Program
         }
         ====================================*/
 
+        /*===================12=============
+
+        List<Person> persons = new List<Person>
+        {
+            new Person {Name = "Nikita", Age = 24},
+            new Person { Name = "Ivayla", Age = 25}
+        };
+
+        SavePersons(persons);
+
+        List<Person> list = new List<Person>();
+        foreach (Person person in persons)
+        {
+            Console.WriteLine(person);
+        }
+        ==================================*/
+
     }
 
     /*===================11=============
@@ -289,6 +308,22 @@ internal class Program
 
     ====================================*/
 
+    /*===================12=============
 
+
+    static void SavePersons(List<Person> persons)
+    {
+    string json = JsonSerializer.Serialize(persons, new JsonSerializerOptions { WriteIndented = true });
+    File.WriteAllText(fileName, json);
+    Console.WriteLine($"{persons.Count} persons saved to {fileName}");
+    }
+
+
+    static List<Person> LoadPersons()
+    {
+    string json = File.ReadAllText(fileName);
+    return JsonSerializer.Deserialize<List<Person>>(json) ?? new List<Person>();
+    }
+    ====================================*/
 
 }
