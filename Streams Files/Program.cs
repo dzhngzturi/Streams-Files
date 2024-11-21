@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Text.Json;
 
 internal class Program
 {
@@ -187,7 +189,7 @@ internal class Program
             }
         }
 
-        ================================== */
+        ==================================*/
 
         /*===================9=============
 
@@ -222,9 +224,9 @@ internal class Program
 
         Console.WriteLine(totalSize);
 
-        ======================8==============*/
+        ====================================*/
 
-
+        /*===================10=============
 
         string inputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\input.txt";
         string outputFilePath = @"C:\Users\dzhengiz\source\repos\Sirma Academy\output.txt";
@@ -236,8 +238,57 @@ internal class Program
             File.WriteAllText(outputFilePath, content);
         }
 
+        ====================================*/
 
+        /*===================11=============
+        
+        Dictionary<string, int> map = new Dictionary<string, int>()
+        {
+            {"Apple", 5 },
+            {"Banana", 3 },
+            {"Cherry", 8 }
+        };
+
+        SaveMap(map, "map.dat");
+
+        Dictionary<string, int> loadedMap = LoadMap("map.dat");
+
+        if (loadedMap != null)
+        {
+            foreach (var entry in loadedMap)
+            {
+                Console.WriteLine(entry.Key, entry.Value);
+            }
+        }
+        ====================================*/
 
     }
+
+    /*===================11=============
+
+    public static void SaveMap(Dictionary<string, int> map, string fileName)
+    {
+        string json = JsonSerializer.Serialize(map);
+        File.WriteAllText(fileName, json);
+    }
+
+    public static Dictionary<string, int> LoadMap(string fileName)
+    {
+        if (File.Exists(fileName))
+        {
+            string json = JsonSerializer.Serialize(fileName);
+
+            Dictionary<string, int> map = JsonSerializer.Deserialize<Dictionary<string, int>>(json);
+            return map;
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    ====================================*/
+
+
+
 }
-    
